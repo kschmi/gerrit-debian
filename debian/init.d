@@ -40,7 +40,7 @@ gerrit_initialize()
 
     if [ ! -d "${GERRIT_SITE}" ]; then
 	install -d -o ${GERRIT_USER} -g ${GERRIT_GROUP} -m 0750 ${GERRIT_DATADIR}
-	${SU} -l ${GERRIT_USER} --shell=/bin/sh -c "${JAVA} ${JAVA_ARGS} -jar ${GERRIT_WAR} ${GERRIT_ARGS} init -d ${GERRIT_SITE}"
+	${SU} -l ${GERRIT_USER} --shell=/bin/sh -c "${JAVA} ${JAVA_ARGS} -jar ${GERRIT_WAR} ${GERRIT_ARGS} init --batch -d /var/lib/gerrit/review_site"
     fi
 }
 
